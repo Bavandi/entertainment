@@ -1,0 +1,23 @@
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { JsPluginsInitService } from 'src/app/core/vendor-utils/js-plugins-init.service';
+
+@Component({
+  selector: 'be-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FooterComponent implements OnInit, AfterViewInit {
+
+  constructor(
+    private _jsPluginsInitService: JsPluginsInitService,
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this._jsPluginsInitService.goUp();
+  }
+
+}
